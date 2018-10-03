@@ -13,3 +13,11 @@ User can watch youtube video while doing work and can open youtube videos direct
 
 ### Video Added to Youtube Desktop Player
 ![alt text](/img/Video_Stacked_in_Desktop_Player.png)
+
+
+## Steps to configure project - 
++ Install and configure NodeJS.
++ Navigate to proejct directory. command -- CD YOUTUBE_TINY
++ npm install -g yarn
++ yarn install
++ Perform -- yarn start
