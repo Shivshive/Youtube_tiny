@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Youtube Player</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .vid_ctrl{
+            position: relative;
+            z-index: 1;
+            margin: 0px;
+            padding: 0px;
+            float: right;
+        }
+        #vid_url{
+            position: relative;
+            padding: 5px;
+            border: 0.5px solid lightgray;
+            border-radius: 5px;
+            font-size: 10px;
+            width: 200px;
+        }
+        #vid_btn{
+            margin: 5px;
+            padding: 4px;
+            position: relative;
+            border: 1px solid dodgerblue;
+            color: black;
+            font-family: cursive;
+            font-size: 11px;
+            background-color: dodgerblue;
+            border-radius: 5px;
+        }
+
+        .vid_container{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden
+        }
+
+        #vid_frm{
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+            align-content: center;
+            align-items: center;
+        }
+    
+    </style>
+
+</head>
+<body>
+    <!-- video controls -->
+    <div class="vid_ctrl">
+        <input type="text" placeholder="Enter Video Url" name="video" id="vid_url" class="vid_url">
+        <button id="vid_btn">Go</button>
+    </div>
+
+    <!-- video frame -->
+    <div id="vid_container" class="vid_container">
+        <iframe id="vid_frm" src="https://www.youtube.com/embed/zI-Pux4uaqM" frameborder="0"></iframe>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

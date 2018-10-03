@@ -1,0 +1,14 @@
+{
+  "name": "Youtube_tiny",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "electron": "^3.0.2",
+    "express": "^4.16.3"
+  },
+  "scripts": {
+    "start": "electron ."
+  }
+}
