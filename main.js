@@ -7,6 +7,9 @@ const express = require('./src/express');
 const path = require('path')
 const url = require('url')
 const globalshortcuts = electron.globalShortcut;
+const tray = electron.Tray;
+const Menu = electron.Menu;
+const ipc = electron.ipcMain;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -14,13 +17,51 @@ let mainWindow
 
 function createWindow() {
 
+  trayicon = new tray(path.join(__dirname, 'src/img', 'logo.png'));
+  const traymenu = new Menu.buildFromTemplate([
+    {
+      label: "Add Video",
+      accelerator:"CommandOrControl+a+v",
+      click: (eve)=>{
+        mainWindow.show();
+        
+        mainWindow.webContents.send('trigger_click_vid_btn');
+      }
+    },
+    {
+      label: "Maximize",
+      accelerator: "CommandOrControl+m",
+      click: (eve)=>{
+        mainWindow.show();
+      }
+    },
+    {
+      label: "Quit",
+      role: 'quit',
+      accelerator: 'CommandOrControl+q'
+    }
+
+  ])
+
+  trayicon.setContextMenu(traymenu)
+
+  trayicon.on('click', (eve) => {
+
+    trayicon.popUpContextMenu();
+
+  })
+
+  trayicon.on('double-click',(eve)=>{
+    mainWindow.show();
+  })
+
   // Create the browser window.
   mainWindow = new BrowserWindow(
     {
       width: 800, height: 600, center: true,
       fullscreenable: true, alwaysOnTop: true,
       autoHideMenuBar: true, darkTheme: true, title: 'Youtube Player',
-      icon: path.join(__dirname,'src/img','logo.png')
+      icon: path.join(__dirname, 'src/img', 'logo.png')
     })
   express(mainWindow);
   globalshortcuts.register('CommandOrControl+i', () => {
@@ -42,6 +83,13 @@ function createWindow() {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+
+  mainWindow.on('minimize', (event) => {
+    event.preventDefault();
+    mainWindow.hide();
+  })
+
 }
 
 // This method will be called when Electron has finished

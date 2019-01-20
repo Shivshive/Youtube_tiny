@@ -5,7 +5,7 @@ var vid_Input = document.getElementById('vid_url');
 var frame_element = document.getElementById('vid_frm');
 var frame_container = document.getElementById('vid_container');
 var vid_btn = document.getElementById('vid_btn');
-
+const ipc_rend = electron.ipcRenderer;
 
 ipc.on('targetPriceVal', function (event, arg) {
     var new_vid_url = 'https://www.youtube.com/embed/'+arg+'?autoplay=0'
@@ -39,3 +39,9 @@ vid_btn.addEventListener('click', function (eve) {
     $('.segment').dimmer('hide');
 
 });
+
+ipc_rend.on('trigger_click_vid_btn',()=>{
+
+    $('.segment').dimmer('show');
+
+})

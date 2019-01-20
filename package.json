@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . --icon=src/img/logo.png",
+    "build": "electron-packager . --icon=src/img/logo.ico",
     "asar_pack" : "asar pack Youtube_tiny-win32-x64/resources/app Youtube_tiny-win32-x64/resources/app.asar"
   }
 }
