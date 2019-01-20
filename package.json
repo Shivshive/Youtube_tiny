@@ -4,12 +4,16 @@
   "main": "main.js",
   "license": "MIT",
   "dependencies": {
+    "asar": "^0.14.6",
     "cors": "^2.8.4",
     "electron": "^3.0.2",
+    "electron-packager": "^13.0.1",
     "express": "^4.16.3",
     "jquery": "^3.3.1"
   },
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . --icon=src/img/logo.png",
+    "asar_pack" : "asar pack Youtube_tiny-win32-x64/resources/app Youtube_tiny-win32-x64/resources/app.asar"
   }
 }
