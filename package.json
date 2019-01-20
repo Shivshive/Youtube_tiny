@@ -6,7 +6,8 @@
   "dependencies": {
     "cors": "^2.8.4",
     "electron": "^3.0.2",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "jquery": "^3.3.1"
   },
   "scripts": {
     "start": "electron ."

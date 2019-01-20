@@ -10,8 +10,8 @@ module.exports = function (win) {
     const app = express()
     app.use(cors())
     app.get('/', (req, res) => {
-        console.log(path.join(__dirname, 'index.html'))
-        res.sendFile(path.join(__dirname, 'index.html'))
+        console.log(path.join(__dirname, 'index_.html'))
+        res.sendFile(path.join(__dirname, 'index_.html'))
     })
 
     app.post('/addVideo', (req, res) => {

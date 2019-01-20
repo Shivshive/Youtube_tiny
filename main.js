@@ -6,29 +6,35 @@ const BrowserWindow = electron.BrowserWindow
 const express = require('./src/express');
 const path = require('path')
 const url = require('url')
+const globalshortcuts = electron.globalShortcut;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow () {
-  
+function createWindow() {
+
   // Create the browser window.
   mainWindow = new BrowserWindow(
     {
       width: 800, height: 600, center: true,
       fullscreenable: true, alwaysOnTop: true,
-      autoHideMenuBar: true, darkTheme:true
+      autoHideMenuBar: true, darkTheme: true, title: 'Youtube Player',
+      icon: path.join(__dirname,'src/img','logo.png')
     })
-    express(mainWindow);
-// and load the index.html of the app.
+  express(mainWindow);
+  globalshortcuts.register('CommandOrControl+i', () => {
+    mainWindow.webContents.openDevTools()
+  })
+
+  // and load the index.html of the app.
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'src','index.html'),
+    pathname: path.join(__dirname, 'src', 'index_.html'),
     protocol: 'file:',
     slashes: true
   }))
   mainWindow.setAlwaysOnTop(true);
-//   mainWindow.webContents.openDevTools();
+  //   mainWindow.webContents.openDevTools();
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows

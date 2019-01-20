@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Semantic UI CSS -->
+    <link rel="stylesheet" href="semantic_Ui/Semantic-UI-CSS-master/semantic.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <script>
+        window.$ = window.jQuery = require('jquery');
+    </script>
+    <title>Youtube Tiny Player</title>
+</head>
+
+<body>
+
+    <div class="ui segment">
+        <!-- dimmer -->
+        <div class="ui dimmer">
+            <div class="content">
+                <h5 class="ui inverted icon header">
+                    <i class="youtube icon"></i>
+                    Copy Youtube Video Url
+                </h5>
+
+                <div class="ui inverted container">
+
+                    <div id="input_box" class="ui right labeled left icon input">
+                        <i class="linkify icon"></i>
+                        <input id="vid_url" type="text" placeholder="Video URL">
+                        <a id="vid_btn" class="ui tag label">
+                            Add
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div id="vid_container">
+            <iframe id="vid_frm" src="https://www.youtube.com/embed/zI-Pux4uaqM" frameborder="0"></iframe>
+        </div>
+    </div>
+    <div class="ui circular mini animated fade show secondary button" tabindex="0">
+        <div class="hidden content">Add</div>
+        <div class="visible content">
+            <i class="plus icon"></i>
+        </div>
+    </div>
+    <!-- <div class="ui show inverted green button"><i class="plus square large icon"></i></div> -->
+    <!-- <div class="ui hide button"><i class="minus icon"></i></div> -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="semantic_Ui/Semantic-UI-CSS-master/semantic.js"></script>
+    <script src="express.js"></script>
+    <script src="index.js"></script>
+    <script>
+
+        $(document).on('click', '.ui.show.button', (eve) => {
+            // left button
+            $('.segment').dimmer('show');
+        })
+
+    // $(document).on('click', '.ui.hide.button', (eve) => {
+    //   // right button
+    //   $('.segment').dimmer('hide');
+    // })
+
+
+    </script>
+</body>
+
+</html>

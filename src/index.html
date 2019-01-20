@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,8 @@
             margin: 0px;
             padding: 0px;
             float: right;
-        }
+            opacity: 0.3
+            }
         #vid_url{
             position: relative;
             padding: 5px;
@@ -58,10 +60,19 @@
             align-content: center;
             align-items: center;
         }
+
+        .vid_ctrl:hover{
+            opacity: 1;
+        }
+
+        /* #vid_url:focus, #vid_btn:focus{
+            opacity: 1;
+        } */
     
     </style>
 
 </head>
+
 <body>
     <!-- video controls -->
     <div class="vid_ctrl">
@@ -76,4 +87,5 @@
 
     <script src="index.js"></script>
 </body>
+
 </html>

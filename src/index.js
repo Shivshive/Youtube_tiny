@@ -6,6 +6,7 @@ var frame_element = document.getElementById('vid_frm');
 var frame_container = document.getElementById('vid_container');
 var vid_btn = document.getElementById('vid_btn');
 
+
 ipc.on('targetPriceVal', function (event, arg) {
     var new_vid_url = 'https://www.youtube.com/embed/'+arg+'?autoplay=0'
     var new_frame_ele = frame_element;
@@ -34,4 +35,7 @@ vid_btn.addEventListener('click', function (eve) {
             frame_container.appendChild(new_frame_ele);
         }
     }
+
+    $('.segment').dimmer('hide');
+
 });
